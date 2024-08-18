@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, and_, or_
 from sqlalchemy.orm import Session
 from .models import Base
 
@@ -8,3 +8,6 @@ engine = create_engine(f'sqlite:///{db_path}')
 
 Base.metadata.create_all(engine)
 session = Session(engine)
+
+and_ = and_
+or_ = or_

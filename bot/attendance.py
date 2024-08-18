@@ -1,7 +1,6 @@
 from pathlib import Path
 from random import choice
 
-from sqlalchemy import TEXT
 from telegram import Update, InlineKeyboardMarkup
 from telegram.ext import (
     CallbackQueryHandler,
@@ -72,7 +71,6 @@ async def verify_captcha(update: Update, context: ContextTypes.DEFAULT_TYPE):
             chat_id=update.message.chat_id,
             message_id=CAPTCHA_MESSAGES[user_id].message_id
         )
-    # del CAPTCHA_MESSAGES[user_id]
 
     if user_input.upper() == CAPTCHA_SOLUTIONS.get(user_id):
         challenge_text = (
@@ -87,7 +85,6 @@ async def verify_captcha(update: Update, context: ContextTypes.DEFAULT_TYPE):
             parse_mode='Markdown'
         )
 
-        # del CAPTCHA_SOLUTIONS[user_id]
         return CHALLENGE
 
     await update.message.reply_text('📛 Неверный ввод, отмена!')
@@ -131,8 +128,6 @@ async def verify_challenge(update: Update, context: ContextTypes.DEFAULT_TYPE):
             message_id=CHALLENGE_MESSAGES[user_id].message_id
         )
     
-    # del CHALLENGE_SOLUTIONS[user_id]
-    # del CHALLENGE_MESSAGES[user_id]
     return ConversationHandler.END
 
 
@@ -147,7 +142,6 @@ async def no_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
             message_id=CHALLENGE_MESSAGES[user_id].message_id
         )
     
-    # del CHALLENGE_MESSAGES[user_id]
     return ConversationHandler.END
 
 

@@ -151,5 +151,6 @@ def handlers():
         CommandHandler('start', start),
         CommandHandler('reg', reg),
         CommandHandler('group', group),
+        CommandHandler('help', start),
         CallbackQueryHandler(cancel, pattern='^cancel$')
     ]
