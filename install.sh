@@ -6,6 +6,8 @@ if [ "$(id -u)" -ne "0" ]; then
 fi
 
 
+sudo apt install -y python3 python3-pip python3-venv 
+
 VENV_DIR="venv"
 REQUIREMENTS_FILE="requirements.txt"
 
@@ -17,6 +19,7 @@ deactivate
 
 
 SERVISE_USER="ianus"
+SERVISE_NAME="ianus.service"
 
 sudo useradd -r -s /sbin/nologin $SERVISE_USER
 
@@ -25,7 +28,7 @@ VENV_PATH="${SCRIPT_DIR}/venv/bin/python"
 PYTHON_SCRIPT_PATH="${SCRIPT_DIR}/main.py"
 WORKING_DIR="${SCRIPT_DIR}"
 
-PROJECT_SERVICE_FILE_PATH="${SCRIPT_DIR}/ianus.service"
+PROJECT_SERVICE_FILE_PATH="${SCRIPT_DIR}/${SERVISE_NAME}"
 
 cat <<EOF > "$PROJECT_SERVICE_FILE_PATH"
 [Unit]
@@ -46,15 +49,15 @@ WantedBy=multi-user.target
 EOF
 
 
-SYSTEMD_SERVICE_LINK="/etc/systemd/system/ianus.service"
+SYSTEMD_SERVICE_LINK="/etc/systemd/system/${SERVISE_NAME}"
 ln -sf "$PROJECT_SERVICE_FILE_PATH" "$SYSTEMD_SERVICE_LINK"
 
 systemctl daemon-reload
 
 echo "Запуск сервиса..."
-systemctl start my_service.service
-systemctl enable my_service.service
+systemctl start ${SERVISE_NAME}
+systemctl enable ${SERVISE_NAME}
 
 sleep 5
 
-systemctl status my_service.service
+systemctl status ${SERVISE_NAME}

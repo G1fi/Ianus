@@ -9,7 +9,7 @@ Ianus is a telegram bot for attendance management in a group of students at FEFU
 git clone https://github.com/G1fi/Ianus.git
 ```
 
-2. Start install.sh at linux server
+2. Start install.sh at Debian/Ubuntu systems
 
 ```bash
 chmod +x install.sh
