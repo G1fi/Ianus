@@ -441,11 +441,8 @@ async def start_upload_attendance(update: Update, context: ContextTypes.DEFAULT_
     return ConversationHandler.END
 
 # TODO
-# start_upload_attendance - цсв и джейсона
-# пинг всем юзерам
-# ВЫГРУЗКУ ЧЕРЕЗ ТРАЙ ЭКСЕПШН? мб и всю настройку выгрузки тоже обернуть?
-# ручную отметку
-# .env для хранения паролей
+# Ручную отметку
+# Пинг всем юзерамo
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
