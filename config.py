@@ -1,5 +1,8 @@
 from datetime import time
+from dotenv import load_dotenv
 from os import getenv
+
+load_dotenv()
 
 BOT_TOKEN = getenv('BOT_TOKEN')
 ADMINS = [867536228, 1102139690, 1085182474]
