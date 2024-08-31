@@ -18,6 +18,13 @@ sudo ./install.sh
 
 # Usage
 
+> edit config.py
+
+> add .env file
+```
+BOT_TOKEN="YOUR_BOT_TOKEN"
+```
+
 > start & enable
 ```
 sudo systemctl start ianus.service
