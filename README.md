@@ -44,7 +44,7 @@ sudo systemctl stop ianus.service
 > check status & logs
 ```
 sudo systemctl status ianus.service
-sudo journalctl -u ianus.service
+sudo journalctl -e -u ianus.service
 ```
 
 # Contributing
