@@ -29,7 +29,7 @@ PROJECT_SERVICE_FILE_PATH="${SCRIPT_DIR}/ianus.service"
 
 cat <<EOF > "$PROJECT_SERVICE_FILE_PATH"
 [Unit]
-Description=IANUS - attendance bot
+Description=Ianus - attendance bot
 After=network.target
 
 [Service]
